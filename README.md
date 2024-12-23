@@ -9,3 +9,4 @@ Python Script where you can scan you Spotify json to receive your Top Artist Son
 - Request the data
 - Wait for Spotify to send you an Email with you´re data (this could take up to 30 days plus)
 ### Using the Script
+- [Download Script ZIP]([https://github.com/yourusername/yourrepo/raw/main/releases/your-release.zip](https://github.com/Timo348/Spotify_Data_Converter/archive/refs/tags/v1.zip))
