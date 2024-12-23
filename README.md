@@ -14,3 +14,6 @@ Python Script where you can scan you Spotify json to receive your Top Artist Son
 - Extract the Zip
 - Put All the Json files from Spotify and the Python Script in the same directory
 - Run the .py Script
+
+
+Note this script is mostly ai programmed
