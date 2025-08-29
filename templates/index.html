@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpotifyFiFi - Dein Musik Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-music"></i>
+                <span>SpotifyFiFi</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="active">Home</a>
+                <a href="/spotify-analyzer">Analyzer</a>
+            </div>
+        </nav>
+
+        <main class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Entdecke deine <span class="gradient-text">Musik-Geschichte</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Analysiere deine Spotify-Daten und finde heraus, welche Songs und Künstler du am meisten gehört hast.
+                    Erhalte detaillierte Einblicke in deine Hörgewohnheiten über verschiedene Zeiträume.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Top Songs & Artists</h3>
+                        <p>Finde deine meistgehörten Songs und Künstler</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Zeitanalyse</h3>
+                        <p>Analysiere deine Hörzeit in verschiedenen Zeiträumen</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-upload"></i>
+                        <h3>Einfacher Upload</h3>
+                        <p>Lade deine Spotify-Daten einfach hoch</p>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="/spotify-analyzer" class="btn btn-primary">
+                        <i class="fas fa-play"></i>
+                        Jetzt Analysieren
+                    </a>
+                    <a href="https://www.spotify.com/account/privacy/" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-download"></i>
+                        Spotify Daten herunterladen
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="music-visualization">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </main>
+
+        <section class="how-it-works">
+            <h2>So funktioniert's</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Daten herunterladen</h3>
+                    <p>Gehe zu deinen Spotify-Kontoeinstellungen und lade deine erweiterte Streaming-Historie herunter</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Dateien hochladen</h3>
+                    <p>Lade die JSON-Dateien aus dem heruntergeladenen ZIP-Archiv auf unserer Plattform hoch</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Analysieren</h3>
+                    <p>Wähle einen Zeitraum aus und erhalte detaillierte Einblicke in deine Hörgewohnheiten</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

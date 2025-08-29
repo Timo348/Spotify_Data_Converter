@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Analyzer - SpotifyFiFi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-music"></i>
+                <span>SpotifyFiFi</span>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/spotify-analyzer" class="active">Analyzer</a>
+            </div>
+        </nav>
+
+        <main class="analyzer-section">
+            <div class="analyzer-header">
+                <h1>Spotify Daten Analyzer</h1>
+                <p>Lade deine Spotify-Daten hoch und analysiere deine Hörgewohnheiten</p>
+            </div>
+
+            <div class="upload-section">
+                <div class="upload-card">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Dateien hochladen</h3>
+                        <p>Ziehe deine Spotify JSON-Dateien hierher oder klicke zum Auswählen</p>
+                        <input type="file" id="fileInput" multiple accept=".json" style="display: none;">
+                        <button class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">
+                            Dateien auswählen
+                        </button>
+                    </div>
+                    <div class="file-list" id="fileList"></div>
+                </div>
+
+                <div class="date-range-card">
+                    <h3>Zeitraum auswählen</h3>
+                    <div class="date-slider-container">
+                        <div class="date-display">
+                            <div class="date-item">
+                                <label>Von</label>
+                                <span id="startDateDisplay">-</span>
+                            </div>
+                            <div class="date-item">
+                                <label>Bis</label>
+                                <span id="endDateDisplay">-</span>
+                            </div>
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-track">
+                                <div class="slider-range" id="sliderRange"></div>
+                                <div class="slider-handle" id="startHandle">
+                                    <div class="handle-label">Start</div>
+                                </div>
+                                <div class="slider-handle" id="endHandle">
+                                    <div class="handle-label">Ende</div>
+                                </div>
+                            </div>
+                            <div class="slider-labels">
+                                <span id="minDateLabel">-</span>
+                                <span id="maxDateLabel">-</span>
+                            </div>
+                        </div>
+                        <div class="quick-presets">
+                            <button class="preset-btn" data-days="7">7 Tage</button>
+                            <button class="preset-btn" data-days="30">30 Tage</button>
+                            <button class="preset-btn" data-days="90">3 Monate</button>
+                            <button class="preset-btn" data-days="365">1 Jahr</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="analyzeBtn" disabled>
+                        <i class="fas fa-chart-bar"></i>
+                        Analysieren
+                    </button>
+                </div>
+            </div>
+
+            <div class="loading-section" id="loadingSection" style="display: none;">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <p>Analysiere deine Daten...</p>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2>Analyse Ergebnisse</h2>
+                    <p id="dateRangeText"></p>
+                </div>
+
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Gesamte Hörzeit</h3>
+                        <p id="totalTime">-</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-music"></i>
+                        <h3>Eindeutige Songs</h3>
+                        <p id="uniqueSongs">-</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-user"></i>
+                        <h3>Eindeutige Künstler</h3>
+                        <p id="uniqueArtists">-</p>
+                    </div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="results-card">
+                        <h3><i class="fas fa-chart-line"></i> Top 10 Songs</h3>
+                        <div class="results-list" id="topSongsList"></div>
+                    </div>
+                    <div class="results-card">
+                        <h3><i class="fas fa-user-friends"></i> Top 10 Künstler</h3>
+                        <div class="results-list" id="topArtistsList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="error-card">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Fehler aufgetreten</h3>
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/analyzer.js') }}"></script>
+</body>
+</html>
